@@ -4,7 +4,7 @@ import { resize } from '../../utils/resize';
 
 export default StyleSheet.create({
   container: {
-    paddingBottom: resize.scaleHeight(8),
+    paddingBottom: resize.scaleHeight(12),
   },
   row: {
     flexDirection: 'row',
@@ -60,5 +60,11 @@ export default StyleSheet.create({
   moreButton: {
     color: COLORS.WHITE,
     opacity: 0.4,
+  },
+  textComments: {
+    color: COLORS.WHITE,
+    fontSize: resize.scaleFont(12),
+    marginTop: resize.scaleHeight(4),
+    opacity: 0.6,
   },
 });

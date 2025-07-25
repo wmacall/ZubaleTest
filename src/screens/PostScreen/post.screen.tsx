@@ -8,6 +8,7 @@ import { PostCard } from '../../components/PostCard';
 import styles from './post.screen.styles';
 import { mapApiError } from '../../utils/mapApiError';
 import { TabBar } from '../../components/TabBar/TabBar';
+import { COLORS } from '../../assets/colors';
 
 export const PostScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,7 @@ export const PostScreen = () => {
             keyExtractor={item => item.id}
             refreshControl={
               <RefreshControl
+                tintColor={COLORS.WHITE}
                 refreshing={isRefreshing}
                 onRefresh={handleRefresh}
               />

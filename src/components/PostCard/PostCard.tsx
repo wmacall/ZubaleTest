@@ -80,9 +80,7 @@ export const PostCard: FC<PostCardProps> = ({
             </TouchableOpacity>
           )}
         </View>
-        {/* <Text>{name}</Text>
-        <Text>{description}</Text> */}
-        <Text>{comments} responses</Text>
+        <Text style={styles.textComments}>{comments} responses</Text>
       </View>
     </View>
   );
