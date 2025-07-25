@@ -5,7 +5,7 @@ import { COLORS } from './src/assets/colors';
 function App() {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.safeArea} />
       <PostScreen />
     </View>
