@@ -9,6 +9,13 @@ const replaceIpfsGateway = (url: string): string => {
   );
 };
 
+const fixPostImage = (url: string): string => {
+  if (!url) return url;
+  return url.includes('loremflickr.com')
+    ? url.replace('https://loremflickr.com', 'https://picsum.photos')
+    : url;
+};
+
 export const mapUserPosts = (posts: UserDTO[]): Post[] =>
   posts.map(post => ({
     id: post.id,
@@ -17,7 +24,7 @@ export const mapUserPosts = (posts: UserDTO[]): Post[] =>
     avatar: post.avatar ? replaceIpfsGateway(post.avatar) : null,
     description: post.description,
     likes: post.likes,
-    image: post.image,
+    image: fixPostImage(post.image),
     comments: post.comments,
     liked: post.liked,
     saved: post.saved,
