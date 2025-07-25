@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Alert, FlatList, RefreshControl, View } from 'react-native';
+import {
+  Alert,
+  FlatList,
+  ListRenderItem,
+  RefreshControl,
+  View,
+} from 'react-native';
 import { Loader } from '../../components/Loader';
 import { getPosts } from '../../api/posts/posts.api';
 import { Post } from '../../entities/Post';
@@ -33,6 +39,8 @@ export const PostScreen = () => {
     handleGetPosts();
   };
 
+  const renderItem: ListRenderItem<Post> = ({ item }) => <PostCard {...item} />;
+
   useEffect(() => {
     handleGetPosts();
   }, []);
@@ -53,8 +61,12 @@ export const PostScreen = () => {
                 onRefresh={handleRefresh}
               />
             }
+            initialNumToRender={8}
+            maxToRenderPerBatch={8}
+            updateCellsBatchingPeriod={30}
+            windowSize={10}
             showsVerticalScrollIndicator={false}
-            renderItem={({ item }) => <PostCard {...item} />}
+            renderItem={renderItem}
           />
         )}
       </View>
