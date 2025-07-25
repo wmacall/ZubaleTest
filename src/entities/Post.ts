@@ -4,7 +4,7 @@ export interface Post {
   name: string;
   avatar: string | null;
   description: string;
-  likes: number;
+  likes: string;
   image: string;
   comments: number;
   liked: boolean;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import {
   BookmarkSimpleIcon,
@@ -10,9 +10,17 @@ import { COLORS } from '../../assets/colors';
 import { resize } from '../../utils/resize';
 import styles from './PostActions.styles';
 
-export const PostActions = () => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [isSaved, setIsSaved] = useState(false);
+interface PostActionsProps {
+  liked?: boolean;
+  saved?: boolean;
+}
+
+export const PostActions: FC<PostActionsProps> = ({
+  liked = false,
+  saved = false,
+}) => {
+  const [isLiked, setIsLiked] = useState(liked);
+  const [isSaved, setIsSaved] = useState(saved);
 
   const handleLikePress = () => {
     setIsLiked(!isLiked);
@@ -27,7 +35,7 @@ export const PostActions = () => {
       <View style={styles.rowIcons}>
         <TouchableOpacity onPress={handleLikePress} activeOpacity={0.7}>
           <HeartIcon
-            color={isLiked ? COLORS.RED : COLORS.WHITE}
+            color={isLiked ? 'red' : COLORS.WHITE}
             size={resize.scaleHeight(20)}
             weight={isLiked ? 'fill' : 'regular'}
           />

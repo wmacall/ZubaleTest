@@ -56,7 +56,17 @@ export default StyleSheet.create({
   textComments: {
     color: COLORS.WHITE,
     fontSize: resize.scaleFont(12),
-    marginTop: resize.scaleHeight(4),
     opacity: 0.6,
+  },
+  containerText: {
+    gap: resize.scaleWidth(4),
+  },
+  responses: {
+    marginTop: resize.scaleHeight(4),
+  },
+  containerStats: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

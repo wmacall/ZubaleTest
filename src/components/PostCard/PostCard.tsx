@@ -16,6 +16,10 @@ export const PostCard: FC<PostCardProps> = ({
   location,
   image,
   comments,
+  liked,
+  saved,
+  likes,
+  createdAt,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -43,8 +47,9 @@ export const PostCard: FC<PostCardProps> = ({
         />
       </View>
       <View style={styles.containerContent}>
-        <PostActions />
-        <View>
+        <PostActions liked={liked} saved={saved} />
+        <View style={styles.containerText}>
+          <Text style={styles.textComments}>{likes} likes</Text>
           <Text
             style={styles.textContent}
             numberOfLines={isExpanded ? undefined : 2}
@@ -58,7 +63,12 @@ export const PostCard: FC<PostCardProps> = ({
             </TouchableOpacity>
           )}
         </View>
-        <Text style={styles.textComments}>{comments} responses</Text>
+        <View style={styles.containerStats}>
+          <Text style={[styles.textComments, styles.responses]}>
+            {comments} responses
+          </Text>
+          <Text style={styles.textComments}>{createdAt}</Text>
+        </View>
       </View>
     </View>
   );

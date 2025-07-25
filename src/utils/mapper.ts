@@ -1,5 +1,7 @@
+import moment from 'moment';
 import { UserDTO } from '../api/DTOS';
 import { Post } from '../entities/Post';
+import { formatLikes } from './formatLikes';
 
 const replaceIpfsGateway = (url: string): string => {
   if (!url) return url;
@@ -19,11 +21,11 @@ const fixPostImage = (url: string): string => {
 export const mapUserPosts = (posts: UserDTO[]): Post[] =>
   posts.map(post => ({
     id: post.id,
-    createdAt: post.createdAt,
+    createdAt: moment(post.createdAt).fromNow(),
     name: post.name,
     avatar: post.avatar ? replaceIpfsGateway(post.avatar) : null,
     description: post.description,
-    likes: post.likes,
+    likes: formatLikes(post.likes),
     image: fixPostImage(post.image),
     comments: post.comments,
     liked: post.liked,
