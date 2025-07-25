@@ -2,16 +2,10 @@ import { FC, useState } from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 import { Post } from '../../entities/Post';
 import { Avatar } from '../ui/Avatar';
+import { PostActions } from '../PostActions';
 import styles from './PostCard.styles';
-import {
-  BookmarkSimpleIcon,
-  ChatCircleIcon,
-  DotsThreeIcon,
-  HeartIcon,
-  PaperPlaneTiltIcon,
-} from 'phosphor-react-native';
+import { DotsThreeIcon } from 'phosphor-react-native';
 import { COLORS } from '../../assets/colors';
-import { resize } from '../../utils/resize';
 
 interface PostCardProps extends Post {}
 
@@ -49,23 +43,7 @@ export const PostCard: FC<PostCardProps> = ({
         />
       </View>
       <View style={styles.containerContent}>
-        <View style={[styles.row, styles.contentIcons]}>
-          <View style={styles.rowIcons}>
-            <HeartIcon color={COLORS.WHITE} size={resize.scaleHeight(20)} />
-            <ChatCircleIcon
-              color={COLORS.WHITE}
-              size={resize.scaleHeight(20)}
-            />
-            <PaperPlaneTiltIcon
-              color={COLORS.WHITE}
-              size={resize.scaleHeight(20)}
-            />
-          </View>
-          <BookmarkSimpleIcon
-            color={COLORS.WHITE}
-            size={resize.scaleHeight(20)}
-          />
-        </View>
+        <PostActions />
         <View>
           <Text
             style={styles.textContent}

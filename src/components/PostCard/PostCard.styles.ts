@@ -41,14 +41,6 @@ export default StyleSheet.create({
   containerContent: {
     paddingHorizontal: resize.scaleWidth(16),
   },
-  rowIcons: {
-    flexDirection: 'row',
-    gap: resize.scaleWidth(8),
-  },
-  contentIcons: {
-    justifyContent: 'space-between',
-    marginVertical: resize.scaleHeight(6),
-  },
   textContent: {
     color: COLORS.WHITE,
     fontSize: resize.scaleFont(12),
